@@ -1,7 +1,7 @@
 #ifndef DCS_FEE_FEE_INFO_HPP
 #define DCS_FEE_FEE_INFO_HPP
 
-#include "dim/dic.hxx"
+#include "../dim/dim/dic.hxx"
 
 namespace dcs { namespace fee {
 
