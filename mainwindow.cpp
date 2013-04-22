@@ -23,5 +23,6 @@ void MainWindow::on_pushButton_clicked()
     _FeeClient = new FeeSamCli();
     FeeSamCli *client = new FeeSamCli();
     client->registerFeeServerName(DCS_Name);
-    client->startFeeClient();   //test
+    //client->startFeeClient();
+    client->startFeeClient();
 }
