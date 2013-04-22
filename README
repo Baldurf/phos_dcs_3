@@ -1,1 +1,4 @@
-This is my new project on Github.
+PHOS DCS GUI
+A GUI tool for configuration and control of PHOS Electronics, including fee control libraries. 
+
+This is a Qt project created for Linux in Qt version 4.8.X. 
