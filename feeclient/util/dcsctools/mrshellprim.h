@@ -18,6 +18,8 @@
 ** provided "as is" without express or implied warranty.                 
 **
 *************************************************************************/
+//har ikke funksjon i prosjektet - ole - 23.04.13
+
 
 #ifndef _MRSHELLPRIM_H
 #define _MRSHELLPRIM_H

@@ -18,6 +18,7 @@
 ** provided "as is" without express or implied warranty.                 
 **
 *************************************************************************/
+//har ikke funksjon i prosjektet - ole - 23.04.13
 
 #include <stdio.h>
 #include <string.h>

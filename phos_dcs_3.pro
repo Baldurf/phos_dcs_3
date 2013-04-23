@@ -81,3 +81,5 @@ HEADERS  += mainwindow.h \
     feesamcli.h
 
 FORMS    += mainwindow.ui
+
+OTHER_FILES +=
