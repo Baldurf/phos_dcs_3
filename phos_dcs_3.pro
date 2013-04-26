@@ -44,7 +44,8 @@ SOURCES += main.cpp\
     feeclient/src/FeeClientCore.cpp \
     feeclient/src/FeeAckInfo.cpp \
     feeclient/src/AckData.cpp \
-    feesamcli.cpp
+    feesamcli.cpp \
+    aflclass.cpp
 
 HEADERS  += mainwindow.h \
     feeclient/dim/dim/tokenstring.hxx \
@@ -78,7 +79,9 @@ HEADERS  += mainwindow.h \
     feeclient/src/FeeClientLinkDef.h \
     feeclient/util/dcsctools/mrshellprim.h \
     feeclient/util/feeserver/rcu_issue.h \
-    feesamcli.h
+    feesamcli.h \
+    aflclass.h \
+    QDebugStream.h
 
 FORMS    += mainwindow.ui
 

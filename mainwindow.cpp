@@ -3,11 +3,14 @@
 #include <QMessageBox>
 #include "feeclient/util/feeserver/rcu_issue.h"
 
+#include <aflclass.h>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
 }
 
 MainWindow::~MainWindow()
@@ -24,8 +27,7 @@ void MainWindow::on_pushButton_clicked() //"init"
     QMessageBox::information(this,"DCS_Name",DCS_Name.c_str());//ui->lineEdit->text()
 
 
-    _FeeClient = new FeeSamCli();
-    FeeSamCli *client = new FeeSamCli();
+
 
     //Register Server Name
     bool rFSN = client->registerFeeServerName(DCS_Name.c_str());
@@ -39,7 +41,7 @@ void MainWindow::on_pushButton_clicked() //"init"
     }
 
     /*
-    //Register Service Name - trengs dette? .. fikse senere
+    //Register Service Name - trengs dette? .. fikse senere .. ingen håndterings sunksjon i fee.sam.cli..
     bool rSN = client->registerServiceName(DCS_Name.c_str(),**peker ); **peker til håndteringsfunksjonenfor tjenesten
     */
 
@@ -62,11 +64,21 @@ void MainWindow::on_pushButton_2_clicked() //"activate"
     uint BinData[num];
     uint Bheader, Bparameter, Btailer;
     Btailer = CE_CMD_TAILER; //it's liek stupid!
-    //Bheader = (FEESERVER_CE_CMD |
+    Bheader = (FEESERVER_CE_CMD |
 
     uint BinFile = 0xff;
 
     */
+
+    //AFLClass *AcFeLi = new AFLClass();
+
+    std::vector< unsigned int > fec0;
+
+
+
+
+
+    //std::cout << "send this to Text Edit!" << endl;
 }
 
 void MainWindow::on_pushButton_3_clicked()//"stop"

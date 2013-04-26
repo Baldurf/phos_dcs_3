@@ -104,9 +104,9 @@ dcs::fee::FeeSampleClient::writeReadData(std::string&  serverName,
   }
   catch (std::exception& e) {
     std::cerr << "FeeClient::writeReadData(" << serverName << "," 
-	      << size << "," << &(data[0]) << "," << flags << "," 
+          << size << "," << &(data[0]) << "," << flags << ","
 	      << errorCode << "," << status << "):\n\t" 
-	      << e.what() << std::endl;
+          << e.what() << std::endl;
     return false;
   }
   return true;

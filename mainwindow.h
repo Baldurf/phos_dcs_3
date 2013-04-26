@@ -31,8 +31,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    FeeSamCli *_FeeClient;
-    //QProcess *fsc; //  = new QProcess(); //for exec
+    FeeSamCli *client = new FeeSamCli(); //TODO er dette dust?
 
 };
 
