@@ -15,6 +15,8 @@ int main(int argc, char *argv[])
     w.show();
 
 
+
+
 /*  http://stackoverflow.com/questions/10308425/redirect-stdcout-to-a-qtextedit
 
     QTextEdit* myTextEdit = new QTextEdit();

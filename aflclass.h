@@ -12,12 +12,12 @@ class AFLClass
 {
 public:
     AFLClass();
-    std::vector< unsigned int> GetFecActive();
-    bool SetFecActive(int module, std::string & FeeServerName );
+
 
 
 private:
-
+    bool GetFecActive();
+    bool SetFecActive(int module, int rcu, std::string & FeeServerName );
 
 
 };

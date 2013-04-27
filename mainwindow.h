@@ -6,9 +6,6 @@
 #include <QMainWindow>
 #include <QProcess>
 
-
-
-
 namespace Ui {
 class MainWindow;
 }
@@ -20,7 +17,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
-
+    FeeSamCli *_FeeClient;
     
 private slots:
     void on_pushButton_clicked();
@@ -31,7 +28,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    FeeSamCli *client = new FeeSamCli(); //TODO er dette dust?
+
 
 };
 

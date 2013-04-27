@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    FeeSamCli *_FeeClient = new FeeSamCli(); //TODO er dette dust?
 }
 
 MainWindow::~MainWindow()
@@ -27,10 +27,8 @@ void MainWindow::on_pushButton_clicked() //"init"
     QMessageBox::information(this,"DCS_Name",DCS_Name.c_str());//ui->lineEdit->text()
 
 
-
-
     //Register Server Name
-    bool rFSN = client->registerFeeServerName(DCS_Name.c_str());
+    bool rFSN = _FeeClient->registerFeeServerName(DCS_Name.c_str());
     if(rFSN=true)
     {
         QMessageBox::information(this,"Success","FeeClient registered successfully. \n): Not already registered");
@@ -40,13 +38,14 @@ void MainWindow::on_pushButton_clicked() //"init"
         QMessageBox::information(this,"Failed","FeeClient did not register. \n): The FeeClient is already connected or \n serverName is NULL.");
     }
 
+
     /*
     //Register Service Name - trengs dette? .. fikse senere .. ingen håndterings sunksjon i fee.sam.cli..
     bool rSN = client->registerServiceName(DCS_Name.c_str(),**peker ); **peker til håndteringsfunksjonenfor tjenesten
     */
 
     //starting FeeClient
-    state = client->startFeeClient();
+    state = _FeeClient->startFeeClient();
     if( state == -1 )
     {
         QMessageBox::information(this,"Error","Error when starting FeeClient. \n FeeServer is in a wrong state, \nalready active?");
