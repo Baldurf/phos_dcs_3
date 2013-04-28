@@ -10,14 +10,15 @@ AFLClass::AFLClass() //Constructor
 
 bool GetFecActive()
 {
-    //bool res = MainWindow::client->writeReadData();
+    //bool res = MainWindow::_FeeClient->writeReadData();
 }
 
 bool SetFecActive(int module, std::string & FeeServerName)
 {
-    //bool res = MainWindow::client->writeReadData(FeeServerName, );
+   // bool res = MainWindow::_FeeClient->writeReadData(FeeServerName, );
 }
 
 
 // int ret = writeReadData ( serverName, size, data, flags, errorCode, status );
 // bool writeReadData(std::string& serverName, size_t& size, DataArray& data, FlagBits& flags, short& errorCode, short& status);
+

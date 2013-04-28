@@ -4,13 +4,21 @@
 #include "feeclient/util/feeserver/rcu_issue.h"
 
 #include <aflclass.h>
+#include <QInputDialog>
+#include <QVector>
+#include <QDialog>
+#include "phosdialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    FeeSamCli *_FeeClient = new FeeSamCli(); //TODO er dette dust?
+    //QLabel label;
+    //PHOSDialog *pDialog = new PHOSDialog(this);
+    //parent.show;
+    //FeeSamCli *_FeeClient = new FeeSamCli(); //Why can't this be here?
+    this->setWindowTitle ("PHOS_DCS_3"); //changes the name of the mainwindow to PHOS_DCS_3
 }
 
 MainWindow::~MainWindow()
@@ -18,17 +26,17 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_clicked() //"init"
+void MainWindow::on_pushButton_clicked() //"initiate"
 {
     std::string DCS_Name = ui->lineEdit->text().toLatin1().data();
-    int state;
+    FeeSamCli *_FeeClient = new FeeSamCli();
 
     if(ui->checkBox->isChecked())
-    QMessageBox::information(this,"DCS_Name",DCS_Name.c_str());//ui->lineEdit->text()
+    QMessageBox::information(this,"DCS_Name",DCS_Name.c_str());//ui->lineEdit->text().toLatin1().data();
 
-
+    const char *_servername = (const char*)DCS_Name.c_str();
     //Register Server Name
-    bool rFSN = _FeeClient->registerFeeServerName(DCS_Name.c_str());
+    bool rFSN = _FeeClient->registerFeeServerName(_servername);
     if(rFSN=true)
     {
         QMessageBox::information(this,"Success","FeeClient registered successfully. \n): Not already registered");
@@ -39,25 +47,30 @@ void MainWindow::on_pushButton_clicked() //"init"
     }
 
 
-    /*
-    //Register Service Name - trengs dette? .. fikse senere .. ingen håndterings sunksjon i fee.sam.cli..
-    bool rSN = client->registerServiceName(DCS_Name.c_str(),**peker ); **peker til håndteringsfunksjonenfor tjenesten
-    */
 
+    //Register Service Name - trengs dette? .. fikse senere.. ingen håndterings funksjon i feesamcli..
+    //bool rSN = client->registerServiceName(DCS_Name.c_str(),**peker ); //**peker til håndteringsfunksjonenfor tjenesten
+
+/*
     //starting FeeClient
-    state = _FeeClient->startFeeClient();
+    //int state;
+    int state = _FeeClient->startFeeClient();
     if( state == -1 )
     {
         QMessageBox::information(this,"Error","Error when starting FeeClient. \n FeeServer is in a wrong state, \nalready active?");
     }
     else
     {
-        QMessageBox::information(this,"FeeClient registered","The FeeClient registered. Number of running services: \n%d",state);
+        QMessageBox::information(this,"FeeClient registered","The FeeClient registered. Number of running services: \n%d",state); //TODO : show state in another way!! check arguments of QMessageBoc::information!!
     }
+    */
 }
 
-void MainWindow::on_pushButton_2_clicked() //"activate"
+void MainWindow::on_pushButton_2_clicked() //"Dialog"
 {
+    //QVector< uint_t > AFLt;
+    //AFLt = QInputDialog::getInt(this)
+
     /* TODO fra 23.04.13
     int num = 3; //set to number of 32 bit words to send
     uint BinData[num];
@@ -71,13 +84,28 @@ void MainWindow::on_pushButton_2_clicked() //"activate"
 
     //AFLClass *AcFeLi = new AFLClass();
 
-    std::vector< unsigned int > fec0;
 
+    // how to show a dialog using phosdialog
+    int base_number = 2; //change 16 to 2 for binary
+    bool ok;
+    QLabel dLabel; //see class reference
+    PHOSDialog *pDialog = new PHOSDialog(&dLabel); //declaring pDialog as a PHOSDialog
+    dLabel.show(); // Not needed. Sets the position of the dialog to the center of the QMainWindow
+    uint SendData;
+    if (pDialog->exec()) {
+    uint SendData = pDialog->InputVal().toUInt(&ok, base_number);
+    }
+    if(ok = false) //if fail
+    {
+        QMessageBox::information(this, "Conversion error!","Could not convert the input to uint (uint for reference)");
+        return;
+    }
 
+    //For debigging purposes
+    QString string;
+    string.setNum(SendData,base_number);
+    QMessageBox::information(this,"New AFL in hex", string);
 
-
-
-    //std::cout << "send this to Text Edit!" << endl;
 }
 
 void MainWindow::on_pushButton_3_clicked()//"stop"

@@ -13,12 +13,9 @@ class AFLClass
 public:
     AFLClass();
 
-
-
 private:
     bool GetFecActive();
     bool SetFecActive(int module, int rcu, std::string & FeeServerName );
-
 
 };
 
