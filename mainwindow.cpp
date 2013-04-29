@@ -10,6 +10,9 @@
 #include "phosdialog.h"
 #include <QLabel>
 
+
+#include "QDebugStream.h" //for redirecting cout to QTextEdit
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -20,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //parent.show;
     //FeeSamCli *_FeeClient = new FeeSamCli(); //Why can't this be here?
     this->setWindowTitle ("PHOS_DCS_3"); //changes the name of the mainwindow to PHOS_DCS_3
+
 }
 
 MainWindow::~MainWindow()
