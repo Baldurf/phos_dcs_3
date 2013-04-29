@@ -11,7 +11,7 @@ FeeSamCli::~FeeSamCli()
 }
 
 //Function that reads the register containing the list of active FECs
-bool readAFL()
+int FeeSamCli::readAFL()
 {
     //readRegisters.cpp
     Register* AFL = new ACTFECLIST(0x0);    //Create a new ACTFECLIST register with no active FECs

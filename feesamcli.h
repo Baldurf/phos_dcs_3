@@ -18,7 +18,7 @@ public:
     /** Destructor */
     virtual ~FeeSamCli();
 
-    bool readAFL();
+    int readAFL();
 
 private:
 
