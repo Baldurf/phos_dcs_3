@@ -24,7 +24,7 @@
 #ifndef ACTFECLIST_H
 #define ACTFECLIST_H
 
-#include "register.h"
+#include "../register.h"
 #include <bitset>
 
 /** Active Front End Card List [31:0]
