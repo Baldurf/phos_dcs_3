@@ -1,7 +1,14 @@
+/*
+ * written by user kharvd on stackoverflow.com 19.02.12
+ *
+ * http://stackoverflow.com/questions/9351407/how-to-include-qlineedit-in-qmessagebox-for-a-search-form/9351654#9351654
+ *
+ */
+
 #ifndef PHOSDIALOG_H
 #define PHOSDIALOG_H
 
-//http://stackoverflow.com/questions/9351407/how-to-include-qlineedit-in-qmessagebox-for-a-search-form
+
 
 #include <QDialog>
 #include <QLineEdit>

@@ -1,8 +1,6 @@
 #ifndef QDEBUGSTREAM_H
 #define QDEBUGSTREAM_H
 
-
-
 // qdebugstream.h          20.7.10
 // version 1.1             4.11.11
 
@@ -41,7 +39,6 @@
 #include <streambuf>
 #include <string>
 
-//#include "qtextedit.h"
 #include "QTextEdit"
 
 class QDebugStream : public std::basic_streambuf<char>

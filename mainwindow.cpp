@@ -51,7 +51,7 @@ void MainWindow::on_pushButton_clicked() //"initiate"
     //Register Service Name - trengs dette? .. fikse senere.. ingen håndterings funksjon i feesamcli..
     //bool rSN = client->registerServiceName(DCS_Name.c_str(),**peker ); //**peker til håndteringsfunksjonenfor tjenesten
 
-/*
+
     //starting FeeClient
     //int state;
     int state = _FeeClient->startFeeClient();
@@ -63,7 +63,7 @@ void MainWindow::on_pushButton_clicked() //"initiate"
     {
         QMessageBox::information(this,"FeeClient registered","The FeeClient registered. Number of running services: \n%d",state); //TODO : show state in another way!! check arguments of QMessageBoc::information!!
     }
-    */
+
 }
 
 void MainWindow::on_pushButton_2_clicked() //"Dialog"
@@ -86,26 +86,28 @@ void MainWindow::on_pushButton_2_clicked() //"Dialog"
 
 
     // how to show a dialog using phosdialog
-    int base_number = 2; //change 16 to 2 for binary
+    int base_number = 16; //change 16 to 2 for binary
     bool ok;
     QLabel dLabel; //see class reference
     PHOSDialog *pDialog = new PHOSDialog(&dLabel); //declaring pDialog as a PHOSDialog
     dLabel.show(); // Not needed. Sets the position of the dialog to the center of the QMainWindow
     uint SendData;
     if (pDialog->exec()) {
-    uint SendData = pDialog->InputVal().toUInt(&ok, base_number);
+    SendData = pDialog->InputVal().toUInt(&ok, base_number);
     }
     if(ok = false) //if fail
     {
         QMessageBox::information(this, "Conversion error!","Could not convert the input to uint (uint for reference)");
         return;
     }
-
+    if(ok = true)
+    {
     //For debigging purposes
     QString string;
     string.setNum(SendData,base_number);
-    QMessageBox::information(this,"New AFL in hex", string);
-
+    QMessageBox::information(this,"New AFL is:", string);
+    return;
+    }
 }
 
 void MainWindow::on_pushButton_3_clicked()//"stop"
