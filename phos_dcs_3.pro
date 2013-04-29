@@ -46,7 +46,9 @@ SOURCES += main.cpp\
     feeclient/src/AckData.cpp \
     feesamcli.cpp \
     aflclass.cpp \
-    phosdialog.cpp
+    phosdialog.cpp \
+    registers/register.cpp \
+    registers/rcu/actfeclist.cpp
 
 HEADERS  += mainwindow.h \
     feeclient/dim/dim/tokenstring.hxx \
@@ -83,7 +85,9 @@ HEADERS  += mainwindow.h \
     feesamcli.h \
     aflclass.h \
     QDebugStream.h \
-    phosdialog.h
+    phosdialog.h \
+    registers/register.h \
+    registers/rcu/actfeclist.h
 
 FORMS    += mainwindow.ui
 
