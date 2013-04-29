@@ -28,13 +28,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked() //"initiate"
 {
-    std::string DCS_Name = ui->lineEdit->text().toLatin1().data();
-    FeeSamCli *_FeeClient = new FeeSamCli();
+    //std::string DCS_Name = ui->lineEdit->text().toLatin1().data();
+    QString DCS_Name = ui->lineEdit->text();
+    FeeSamCli *_FeeClient = new FeeSamCli(DCS_Name);
 
     if(ui->checkBox->isChecked())
-    QMessageBox::information(this,"DCS_Name",DCS_Name.c_str());//ui->lineEdit->text().toLatin1().data();
+        QMessageBox::information(this,"DCS_Name",DCS_Name);
+    //QMessageBox::information(this,"DCS_Name",DCS_Name.c_str());//ui->lineEdit->text().toLatin1().data();
 
-    const char *_servername = (const char*)DCS_Name.c_str();
+    const char *_servername = (const char*)DCS_Name.toStdString().c_str();
+    //const char *_servername = (const char*)DCS_Name.c_str();
     //Register Server Name
     bool rFSN = _FeeClient->registerFeeServerName(_servername);
     if(rFSN=true)
