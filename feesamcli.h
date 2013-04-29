@@ -18,7 +18,7 @@ public:
     /** Destructor */
     virtual ~FeeSamCli();
 
-    int readAFL();
+    int readAFL(Register *AFL);
 
 private:
 
@@ -33,6 +33,9 @@ private:
 
     /** Copy Constructor, prohibited */
     FeeSamCli(const FeeSamCli& other);
+
+    /** Assignment operator, prohibited */
+    FeeSamCli& operator=(const FeeSamCli& other);
 
 };
 #endif // FEESAMCLI_H

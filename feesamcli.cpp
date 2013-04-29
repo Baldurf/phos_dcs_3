@@ -11,10 +11,8 @@ FeeSamCli::~FeeSamCli()
 }
 
 //Function that reads the register containing the list of active FECs
-int FeeSamCli::readAFL()
+int FeeSamCli::readAFL(Register* AFL)
 {
-    //readRegisters.cpp
-    Register* AFL = new ACTFECLIST(0x0);    //Create a new ACTFECLIST register with no active FECs
 
     //phosdcsclient.cpp readrcuregister
     vector<uint> binary;                  //The binary file that will be sent to the DCS
@@ -38,6 +36,9 @@ int FeeSamCli::readAFL()
     std::string dcsname = FeeSamCli::_feeServerName.toStdString();
 
     int ret = FeeSamCli::writeReadData ( dcsname, size, binary, flags, errorCode, status );
+
+    //phosdcsclient.cpp readrcuregister
+    AFL->SetValue(binary[0]);
 
     return ret;
 }

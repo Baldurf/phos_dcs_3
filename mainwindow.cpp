@@ -113,7 +113,7 @@ void MainWindow::on_pushButton_2_clicked() //"Dialog"
     }
 }
 
-void MainWindow::on_pushButton_3_clicked()//"stop"
+void MainWindow::on_pushButton_3_clicked()//Read AFL
 {
 
     /*//exec
@@ -123,4 +123,25 @@ void MainWindow::on_pushButton_3_clicked()//"stop"
     fsc->~QProcess();
     return;
     */
+
+    //Start timer here
+
+    //readRegisters.cpp
+    Register* AFL = new ACTFECLIST(0x0);    //Create a new ACTFECLIST register with no active FECs
+    QMessageBox::information(this,"Test","1");
+
+    int result=_FeeClient->readAFL(AFL);
+    QMessageBox::information(this,"Test","2");
+
+        if (result == 1)
+        {
+            //Stop timer here
+
+            //vector<uint> actfeclist = _FeeClient->
+
+            QMessageBox::information(this,"Success!",QString::number(AFL->GetValue()));
+        }
+
+        else
+            QMessageBox::information(this,"Failure!","Something went wrong");
 }
