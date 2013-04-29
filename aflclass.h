@@ -7,6 +7,8 @@
 #ifndef __STRING__
 # include <string>
 #endif
+#include <feesamcli.h>
+#include <mainwindow.h>
 
 class AFLClass
 {
@@ -14,7 +16,7 @@ public:
     AFLClass();
 
 private:
-    bool GetFecActive();
+    bool GetFecActive(FeeSamCli _feeServer);
     bool SetFecActive(int module, int rcu, std::string & FeeServerName );
 
 };
