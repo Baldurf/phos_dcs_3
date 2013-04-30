@@ -7,6 +7,7 @@
 #include <QVector>
 #include <QDialog>
 #include "phosdialog.h"
+#include <QLabel>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -70,43 +71,28 @@ void MainWindow::on_pushButton_clicked() //"initiate"
 
 void MainWindow::on_pushButton_2_clicked() //"Dialog"
 {
-    //QVector< uint_t > AFLt;
-    //AFLt = QInputDialog::getInt(this)
 
-    /* TODO fra 23.04.13
-    int num = 3; //set to number of 32 bit words to send
-    uint BinData[num];
-    uint Bheader, Bparameter, Btailer;
-    Btailer = CE_CMD_TAILER; //it's liek stupid!
-    Bheader = (FEESERVER_CE_CMD |
-
-    uint BinFile = 0xff;
-
-    */
-
-    //AFLClass *AcFeLi = new AFLClass();
-
-
-    // how to show a dialog using phosdialog
-    int base_number = 16; //change 16 to 2 for binary
+    // how to show a dialog using phosdialog.
+    // Output is in this example the output.
+    int base_number = 16; //Base of the string which is expected. Change 16 to 2 for binary.
     bool ok;
-    QLabel dLabel; //see class reference
-    PHOSDialog *pDialog = new PHOSDialog(&dLabel); //declaring pDialog as a PHOSDialog
-    dLabel.show(); // Not needed. Sets the position of the dialog to the center of the QMainWindow
-    uint SendData;
+    QLabel dLabel; //see class reference : QLabel is used for desplaying stuff.
+    PHOSDialog *pDialog = new PHOSDialog(&dLabel); //declaring pDialog as a PHOSDialog.
+    dLabel.show(); // Not needed. Sets the position of the dialog to the center of the QMainWindow.
+    uint Output;
     if (pDialog->exec()) {
-    SendData = pDialog->InputVal().toUInt(&ok, base_number);
+    Output = pDialog->InputVal().toUInt(&ok, base_number); //Output is the output of the dialog.
     }
     if(ok = false) //if fail
     {
-        QMessageBox::information(this, "Conversion error!","Could not convert the input to uint (uint for reference)");
+        QMessageBox::information(this, "Conversion error!","Could not convert the input to uint (uint for reference).");
         return;
     }
     if(ok = true)
     {
     //For debigging purposes
     QString string;
-    string.setNum(SendData,base_number);
+    string.setNum(Output,base_number);
     QMessageBox::information(this,"New AFL is:", string);
     return;
     }
@@ -134,4 +120,14 @@ void MainWindow::on_pushButton_3_clicked()//Read AFL
 
         else
             QMessageBox::information(this,"Failure!","Something went wrong");
+}
+
+void MainWindow::on_pushButton_4_clicked()
+{
+
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+
 }
