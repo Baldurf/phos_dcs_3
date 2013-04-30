@@ -3,6 +3,7 @@
 #include <QMessageBox>
 #include "feeclient/util/feeserver/rcu_issue.h"
 
+#include <aflclass.h>
 #include <QInputDialog>
 #include <QVector>
 #include <QDialog>
@@ -75,6 +76,8 @@ void MainWindow::on_pushButton_clicked() //"initiate"
 
 void MainWindow::on_pushButton_2_clicked() //"Dialog"
 {
+    //QVector< uint_t > AFLt;
+    //AFLt = QInputDialog::getInt(this)
 
     // how to show a dialog using phosdialog.
     // Output is in this example the output.
@@ -126,12 +129,12 @@ void MainWindow::on_pushButton_3_clicked()//Read AFL
             QMessageBox::information(this,"Failure!","Something went wrong");
 }
 
-void MainWindow::on_pushButton_4_clicked() //PushButton4
+void MainWindow::on_pushButton_4_clicked()
 {
 
 }
 
-void MainWindow::on_pushButton_5_clicked() //PushButton5
+void MainWindow::on_pushButton_5_clicked()
 {
 
 }
