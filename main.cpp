@@ -5,9 +5,6 @@
 #include "QDebugStream.h" //for redirecting cout to QTextEdit
 #include <QTextEdit>
 
-
-
-
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);

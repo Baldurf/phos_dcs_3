@@ -32,13 +32,16 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked() //"initiate"
 {
-    std::string DCS_Name = ui->lineEdit->text().toLatin1().data();
-    FeeSamCli *_FeeClient = new FeeSamCli();
+    //std::string DCS_Name = ui->lineEdit->text().toLatin1().data();
+    QString DCS_Name = ui->lineEdit->text();
+    _FeeClient = new FeeSamCli(DCS_Name);
 
     if(ui->checkBox->isChecked())
-    QMessageBox::information(this,"DCS_Name",DCS_Name.c_str());//ui->lineEdit->text().toLatin1().data();
+        QMessageBox::information(this,"DCS_Name",DCS_Name);
+    //QMessageBox::information(this,"DCS_Name",DCS_Name.c_str());//ui->lineEdit->text().toLatin1().data();
 
-    const char *_servername = (const char*)DCS_Name.c_str();
+    const char *_servername = (const char*)DCS_Name.toStdString().c_str();
+    //const char *_servername = (const char*)DCS_Name.c_str();
     //Register Server Name
     bool rFSN = _FeeClient->registerFeeServerName(_servername);
     if(rFSN=true)
@@ -58,16 +61,14 @@ void MainWindow::on_pushButton_clicked() //"initiate"
 
     //starting FeeClient
     //int state;
-
     int state = _FeeClient->startFeeClient();
-    // QString Sstate = QString::number(state);
     if( state == -1 )
     {
         QMessageBox::information(this,"Error","Error when starting FeeClient. \n FeeServer is in a wrong state, \nalready active?");
     }
     else
     {
-        QMessageBox::information(this,"FeeClient registered. Number of running services:", QString::number(state) ); //TODO : show state in another way!! check arguments of QMessageBoc::information!!
+        QMessageBox::information(this,"FeeClient registered","The FeeClient registered. Number of running services: \n%d",state); //TODO : show state in another way!! check arguments of QMessageBoc::information!!
     }
 
 }
@@ -101,19 +102,28 @@ void MainWindow::on_pushButton_2_clicked() //"Dialog"
     }
 }
 
-
-void MainWindow::on_pushButton_3_clicked() //"stop"
+void MainWindow::on_pushButton_3_clicked()//Read AFL
 {
+    //Start timer here
 
-    /*//exec
-    //enum mentos = fsc->ProcessState;
+    //from readRegisters.cpp
+    Register* AFL = new ACTFECLIST(0x0);    //Create a new ACTFECLIST register with no active FECs
 
-    if( fsc->state() == QProcess::Running )
-    fsc->~QProcess();
-    return;
-    */
+    int result=0;
+    if(_FeeClient!=NULL)                    //Check if FeeSampleClient implementation exists
+        result=_FeeClient->readAFL(AFL);    //Attempt to read AFL register
 
+        if (result == 1)    //Success
+        {
+            //Stop timer here
 
+            //vector<uint> actfeclist = _FeeClient->
+
+            QMessageBox::information(this,"Success!",QString::number(AFL->GetValue())); //Display list of active FECs
+        }
+
+        else
+            QMessageBox::information(this,"Failure!","Something went wrong");
 }
 
 void MainWindow::on_pushButton_4_clicked() //PushButton4
