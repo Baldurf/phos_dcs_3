@@ -3,11 +3,15 @@
 #include <QMessageBox>
 #include "feeclient/util/feeserver/rcu_issue.h"
 
+#include <aflclass.h>
 #include <QInputDialog>
 #include <QVector>
 #include <QDialog>
 #include "phosdialog.h"
 #include <QLabel>
+
+
+#include "QDebugStream.h" //for redirecting cout to QTextEdit
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //parent.show;
     //FeeSamCli *_FeeClient = new FeeSamCli(); //Why can't this be here?
     this->setWindowTitle ("PHOS_DCS_3"); //changes the name of the mainwindow to PHOS_DCS_3
+
 }
 
 MainWindow::~MainWindow()
@@ -71,6 +76,8 @@ void MainWindow::on_pushButton_clicked() //"initiate"
 
 void MainWindow::on_pushButton_2_clicked() //"Dialog"
 {
+    //QVector< uint_t > AFLt;
+    //AFLt = QInputDialog::getInt(this)
 
     // how to show a dialog using phosdialog.
     // Output is in this example the output.

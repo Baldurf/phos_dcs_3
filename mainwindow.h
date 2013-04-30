@@ -20,6 +20,7 @@ public:
     ~MainWindow();
     FeeSamCli *_FeeClient;
     PHOSDialog *pDialog;
+    QString FeeServerName;
     
 private slots:
     void on_pushButton_clicked();

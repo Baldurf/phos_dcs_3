@@ -57,6 +57,7 @@ PHOSDialog::PHOSDialog(QWidget *parent) :
     lt->addWidget(DialogBox);
 
     setLayout(lt);
+
     }
 
     QString PHOSDialog::InputVal() const
