@@ -45,7 +45,6 @@ SOURCES += main.cpp\
     feeclient/src/FeeAckInfo.cpp \
     feeclient/src/AckData.cpp \
     feesamcli.cpp \
-    aflclass.cpp \
     phosdialog.cpp \
     registers/register.cpp \
     registers/rcu/actfeclist.cpp
@@ -83,7 +82,6 @@ HEADERS  += mainwindow.h \
     feeclient/util/dcsctools/mrshellprim.h \
     feeclient/util/feeserver/rcu_issue.h \
     feesamcli.h \
-    aflclass.h \
     QDebugStream.h \
     phosdialog.h \
     registers/register.h \

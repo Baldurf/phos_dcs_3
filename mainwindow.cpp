@@ -3,7 +3,6 @@
 #include <QMessageBox>
 #include "feeclient/util/feeserver/rcu_issue.h"
 
-#include <aflclass.h>
 #include <QInputDialog>
 #include <QVector>
 #include <QDialog>
