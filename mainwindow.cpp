@@ -30,7 +30,7 @@ void MainWindow::on_pushButton_clicked() //"initiate"
 {
     //std::string DCS_Name = ui->lineEdit->text().toLatin1().data();
     QString DCS_Name = ui->lineEdit->text();
-    FeeSamCli *_FeeClient = new FeeSamCli(DCS_Name);
+    _FeeClient = new FeeSamCli(DCS_Name);
 
     if(ui->checkBox->isChecked())
         QMessageBox::information(this,"DCS_Name",DCS_Name);
@@ -115,31 +115,22 @@ void MainWindow::on_pushButton_2_clicked() //"Dialog"
 
 void MainWindow::on_pushButton_3_clicked()//Read AFL
 {
-
-    /*//exec
-    //enum mentos = fsc->ProcessState;
-
-    if( fsc->state() == QProcess::Running )
-    fsc->~QProcess();
-    return;
-    */
-
     //Start timer here
 
-    //readRegisters.cpp
+    //from readRegisters.cpp
     Register* AFL = new ACTFECLIST(0x0);    //Create a new ACTFECLIST register with no active FECs
-    QMessageBox::information(this,"Test","1");
 
-    int result=_FeeClient->readAFL(AFL);
-    QMessageBox::information(this,"Test","2");
+    int result=0;
+    if(_FeeClient!=NULL)                    //Check if FeeSampleClient implementation exists
+        result=_FeeClient->readAFL(AFL);    //Attempt to read AFL register
 
-        if (result == 1)
+        if (result == 1)    //Success
         {
             //Stop timer here
 
             //vector<uint> actfeclist = _FeeClient->
 
-            QMessageBox::information(this,"Success!",QString::number(AFL->GetValue()));
+            QMessageBox::information(this,"Success!",QString::number(AFL->GetValue())); //Display list of active FECs
         }
 
         else

@@ -20,10 +20,12 @@ public:
 
     int readAFL(Register *AFL);
 
-private:
-
     /** FEE server name */
     QString _feeServerName;
+
+private:
+
+
 
     /** Mutex lock */
     QMutex *_mutex;
