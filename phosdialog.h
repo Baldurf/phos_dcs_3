@@ -8,21 +8,21 @@
 #ifndef PHOSDIALOG_H
 #define PHOSDIALOG_H
 
-
-
 #include <QDialog>
 #include <QLineEdit>
 #include <QString>
+#include <QInputDialog>
+#include <QMessageBox>
 
 class PHOSDialog : public QDialog
 {
     Q_OBJECT
 public:
-    explicit PHOSDialog(QWidget *parent = 0);
-    QString InputVal() const;
+    PHOSDialog();
+    QString sPHOSDialog(QString message);
+    uint iPHOSDialog(int base_number);
 
 private:
-    QLineEdit *LEdit;
     
 signals:
     

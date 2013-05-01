@@ -30,37 +30,39 @@
 #include "phosdialog.h"
 
 
-// http://stackoverflow.com/questions/9351407/how-to-include-qlineedit-in-qmessagebox-for-a-search-form
-
-#include <QVBoxLayout>
-#include <QPushButton>
-#include <QDialogButtonBox>
-
-PHOSDialog::PHOSDialog(QWidget *parent) :
-    QDialog(parent)
+PHOSDialog::PHOSDialog()
 {
-    LEdit = new QLineEdit(this);
-    QPushButton *acceptButton = new QPushButton(tr("Accept"));
-    acceptButton->setDefault(true);
 
-    QPushButton *cancelButton = new QPushButton(tr("Cancel"));
+}
 
-    QDialogButtonBox *DialogBox = new QDialogButtonBox(Qt::Horizontal);
-    DialogBox->addButton(acceptButton, QDialogButtonBox::AcceptRole);
-    DialogBox->addButton(cancelButton, QDialogButtonBox::RejectRole);
-
-    connect(DialogBox, SIGNAL(accepted()), this, SLOT(accept()));
-    connect(DialogBox, SIGNAL(rejected()), this, SLOT(reject()));
-
-    QVBoxLayout *lt = new QVBoxLayout;
-    lt->addWidget(LEdit);
-    lt->addWidget(DialogBox);
-
-    setLayout(lt);
-
+QString PHOSDialog::sPHOSDialog(QString message)
+{
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                              message, QLineEdit::Normal,
+                                              NULL, &ok);
+    QMessageBox::information(this,"Value from input:", text);
+    if (ok && !text.isEmpty()){
+        QMessageBox::information(this,"Value from input:", text);
+        return text;
     }
+    else return NULL;
 
-    QString PHOSDialog::InputVal() const
+   }
+
+uint PHOSDialog::iPHOSDialog(int base_number) //integer PHOSDialog: for integer numbers.. returns a 32 bit uint.
+{
+     // base_number  Base of the string which is expected. Change 16 to 2 for binary.
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                              tr("Active FEC List:"), QLineEdit::Normal,
+                                              NULL, &ok);
+    QMessageBox::information(this,"New AFL is:", text);
+    if (ok && !text.isEmpty())
     {
-        return LEdit->text();
+        QMessageBox::information(this,"New AFL is:", text);
+        return text.toUInt(&ok, base_number);
     }
+    else return NULL;
+
+}

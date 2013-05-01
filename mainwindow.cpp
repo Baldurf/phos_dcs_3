@@ -3,7 +3,6 @@
 #include <QMessageBox>
 #include "feeclient/util/feeserver/rcu_issue.h"
 
-#include <aflclass.h>
 #include <QInputDialog>
 #include <QVector>
 #include <QDialog>
@@ -81,14 +80,16 @@ void MainWindow::on_pushButton_2_clicked() //"Dialog"
 
     // how to show a dialog using phosdialog.
     // Output is in this example the output.
-    int base_number = 16; //Base of the string which is expected. Change 16 to 2 for binary.
+    /*
+
     bool ok;
     QLabel dLabel; //see class reference : QLabel is used for desplaying stuff.
     PHOSDialog *pDialog = new PHOSDialog(&dLabel); //declaring pDialog as a PHOSDialog.
     dLabel.show(); // Not needed. Sets the position of the dialog to the center of the QMainWindow.
     uint Output;
     if (pDialog->exec()) {
-    Output = pDialog->InputVal().toUInt(&ok, base_number); //Output is the output of the dialog.
+        Output = pDialog->InputVal().toUInt(&ok, base_number); //Output is the output of the dialog.
+        dLabel.setText(pDialog->InputVal());
     }
     if(ok = false) //if fail
     {
@@ -103,6 +104,25 @@ void MainWindow::on_pushButton_2_clicked() //"Dialog"
     QMessageBox::information(this,"New AFL is:", string);
     return;
     }
+    */
+    /*
+    short int base_number = 16; //Base of the string which is expected. Change 16 to 2 for binary.
+    bool ok;
+    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+                                              tr("Active FEC List:"), QLineEdit::Normal,
+                                              NULL, &ok);
+    QMessageBox::information(this,"New AFL is:", text);
+    if (ok && !text.isEmpty())
+    uint value = text.toUInt(&ok, base_number);
+    else return;
+    */
+    QString message = "Give your input";
+    PHOSDialog *pDia = new PHOSDialog;
+    QString streeng = pDia->sPHOSDialog(message);
+
+    uint talll = pDia->iPHOSDialog(2);
+
+
 }
 
 void MainWindow::on_pushButton_3_clicked()//Read AFL
