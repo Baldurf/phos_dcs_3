@@ -82,7 +82,6 @@ HEADERS  += mainwindow.h \
     feeclient/util/dcsctools/mrshellprim.h \
     feeclient/util/feeserver/rcu_issue.h \
     feesamcli.h \
-    aflclass.h \
     QDebugStream.h \
     phosdialog.h \
     registers/register.h \

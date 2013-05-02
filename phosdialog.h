@@ -20,7 +20,7 @@ class PHOSDialog : public QDialog
 public:
     PHOSDialog();
     QString sPHOSDialog(QString message);
-    uint iPHOSDialog(int base_number);
+    uint iPHOSDialog(int base_number, QString message);
 
 private:
     

@@ -56,21 +56,21 @@
         <item>
          <widget class="QPushButton" name="pushButton">
           <property name="text">
-           <string>Initiate</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="pushButton_2">
-          <property name="text">
-           <string>Dialog - AFL</string>
+           <string>Initiate 1</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="pushButton_3">
           <property name="text">
-           <string>Stop</string>
+           <string>Read AFL 3</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_2">
+          <property name="text">
+           <string>Dialog 2</string>
           </property>
          </widget>
         </item>

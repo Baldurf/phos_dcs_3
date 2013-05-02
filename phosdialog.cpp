@@ -29,6 +29,39 @@
 
 #include "phosdialog.h"
 
+/*
+ *---------------------------------
+ *How to use these dialogs
+ *
+ *      //Give "message" as a question for the dialog. This is what the Dialog asks for.
+ *      QString message = "Give your input";
+ *
+ *      //the dialog
+ *      PHOSDialog *pDia = new PHOSDialog;
+ *
+ *      //The string version of the dialog
+ *      QString streeng = pDia->sPHOSDialog(QString message);
+ *
+ *      --------------------------------------------------------------------------
+ *
+ *      //For the integer version of the Dialog:
+ *
+ *      //Give "message" as a question for the dialog. This is what the Dialog asks for.
+ *      //Might be a good idea to include information about base_number
+ *
+ *      QString message = "Give your input in "base_number" format";
+ *
+ *      //the dialog
+ *      PHOSDialog *pDia = new PHOSDialog;
+ *
+ *      //integer version of the dialog.
+ *      //base_number is the expected base of the input.
+ *      uint talll = pDia->iPHOSDialog(uint base_number, QStringmessage);
+ *
+ *
+ */
+
+
 
 PHOSDialog::PHOSDialog()
 {
@@ -38,29 +71,27 @@ PHOSDialog::PHOSDialog()
 QString PHOSDialog::sPHOSDialog(QString message)
 {
     bool ok;
-    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
+    QString text = QInputDialog::getText(this, tr("PHOS string dialog"),
                                               message, QLineEdit::Normal,
                                               NULL, &ok);
-    QMessageBox::information(this,"Value from input:", text);
     if (ok && !text.isEmpty()){
-        QMessageBox::information(this,"Value from input:", text);
+        QMessageBox::information(this,"Value from input:", text); //for debugging
         return text;
     }
     else return NULL;
 
    }
 
-uint PHOSDialog::iPHOSDialog(int base_number) //integer PHOSDialog: for integer numbers.. returns a 32 bit uint.
+uint PHOSDialog::iPHOSDialog(int base_number, QString message) //integer PHOSDialog: for integer numbers.. returns a 32 bit uint.
 {
      // base_number  Base of the string which is expected. Change 16 to 2 for binary.
     bool ok;
-    QString text = QInputDialog::getText(this, tr("QInputDialog::getText()"),
-                                              tr("Active FEC List:"), QLineEdit::Normal,
+    QString text = QInputDialog::getText(this, tr("PHOS integer dialog"),
+                                              message, QLineEdit::Normal,
                                               NULL, &ok);
-    QMessageBox::information(this,"New AFL is:", text);
     if (ok && !text.isEmpty())
     {
-        QMessageBox::information(this,"New AFL is:", text);
+        QMessageBox::information(this,"New AFL is:", text); //for debugging
         return text.toUInt(&ok, base_number);
     }
     else return NULL;
