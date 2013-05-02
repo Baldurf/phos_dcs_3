@@ -68,7 +68,8 @@ void MainWindow::on_pushButton_clicked() //"initiate"
     }
     else
     {
-        QMessageBox::information(this,"FeeClient registered","The FeeClient registered. Number of running services: \n%d",state); //TODO : show state in another way!! check arguments of QMessageBoc::information!!
+        QString stateStr;
+        QMessageBox::information(this,"FeeClient registered",stateStr.append(QString("%1").arg(state))); //TODO : show state in another way!! check arguments of QMessageBoc::information!!
     }
 
 }
