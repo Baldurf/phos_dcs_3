@@ -26,7 +26,7 @@
 #define IEEE_FLOAT 		0x20
 #define AXP_FLOAT		0x30
 
-#define MY_FORMAT MY_LITTLE_ENDIAN+IEEE_FLOAT //ole og lars
+#define MY_FORMAT MY_LITTLE_ENDIAN+IEEE_FLOAT //ole og lars This is to be considered bad practice!
 
 #define MY_OS9			0x100
 #define IT_IS_FLOAT		0x1000

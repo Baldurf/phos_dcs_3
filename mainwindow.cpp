@@ -46,7 +46,7 @@ void MainWindow::on_pushButton_clicked() //"initiate"
     bool rFSN = _FeeClient->registerFeeServerName(_servername);
     if(rFSN=true)
     {
-        QMessageBox::information(this,"Success","FeeClient registered successfully. \n): Not already registered");
+        QMessageBox::information(this,"Success","FeeClient registered successfully. \n FeeServer Registered");
     }
     if(rFSN=false)
     {
@@ -64,12 +64,13 @@ void MainWindow::on_pushButton_clicked() //"initiate"
     int state = _FeeClient->startFeeClient();
     if( state == -1 )
     {
-        QMessageBox::information(this,"Error","Error when starting FeeClient. \n FeeServer is in a wrong state, \nalready active?");
+        QMessageBox::information(this,"Error",
+                                 "Error when starting FeeClient. \n FeeServer is in a wrong state, \nalready active?");
     }
     else
     {
         QString stateStr;
-        QMessageBox::information(this,"FeeClient registered",stateStr.append(QString("%1").arg(state))); //TODO : show state in another way!! check arguments of QMessageBoc::information!!
+        QMessageBox::information(this,"FeeClient registered",stateStr.append(QString("%1").arg(state)));
     }
 
 }
@@ -93,29 +94,52 @@ void MainWindow::on_pushButton_3_clicked()//Read AFL
     //from readRegisters.cpp
     Register* AFL = new ACTFECLIST(0x0);    //Create a new ACTFECLIST register with no active FECs
 
-    int result=0;
+    bool result = false;
     if(_FeeClient!=NULL)                    //Check if FeeSampleClient implementation exists
         result=_FeeClient->readAFL(AFL);    //Attempt to read AFL register
 
-        if (result == 1)    //Success
+        if (result == true)    //Success
         {
             //Stop timer here
 
             //vector<uint> actfeclist = _FeeClient->
 
-            QMessageBox::information(this,"Success!",QString::number(AFL->GetValue())); //Display list of active FECs
+            QMessageBox::information(this,"Success!",QString::number(AFL->GetValue())); //Display list of active FECs // QString::number(AFL->GetValue()
+        }
+        if(result==false)
+        {
+            QMessageBox::information(this,"readAFL failed","AFL was not read.\nSomething is wrong!");
         }
 
         else
             QMessageBox::information(this,"Failure!","Something went wrong");
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::on_pushButton_4_clicked() //stop
 {
+    if(_FeeClient==NULL)
+        return;
+    {
+    bool resu = _FeeClient->stopFeeClient();
+    if (resu=false)
+    {
+        QMessageBox::information(this,"Failure!","FeeClient was not running");
+        return;
+    }
 
+    if (resu = true)
+    {
+        QMessageBox::information(this,"Win!","FeeClient was running.\nShutting down now.");
+        delete _FeeClient;
+    }
+}
 }
 
 void MainWindow::on_pushButton_5_clicked()
 {
-
+    if(_FeeClient!=NULL)
+    QMessageBox::information(this,"1!","=1");
+    if(_FeeClient=NULL)
+    QMessageBox::information(this,"2!","=2");
+    return;
 }

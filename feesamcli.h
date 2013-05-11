@@ -18,7 +18,7 @@ public:
     /** Destructor */
     virtual ~FeeSamCli();
 
-    int readAFL(Register *AFL);
+    bool readAFL(Register *AFL);
 
     /** FEE server name */
     QString _feeServerName;

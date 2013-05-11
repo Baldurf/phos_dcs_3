@@ -14,8 +14,9 @@ FeeSamCli::~FeeSamCli()
 }
 
 //Function that reads the register containing the list of active FECs
-int FeeSamCli::readAFL(Register* AFL)
+bool FeeSamCli::readAFL(Register* AFL)
 {
+    QMutexLocker mlAFL(_mutex);
 
     //from phosdcsclient.cpp readrcuregister
     vector<uint> binary;                  //The binary file that will be sent to the DCS
@@ -35,7 +36,7 @@ int FeeSamCli::readAFL(Register* AFL)
 
     std::string dcsname =_feeServerName.toStdString();  //Convert name to string
 
-    int ret = FeeSamCli::writeReadData ( dcsname, size, binary, flags, errorCode, status ); //Send binary to DCS
+    bool ret = FeeSamCli::writeReadData ( dcsname, size, binary, flags, errorCode, status ); //Send binary to DCS
 
     //from phosdcsclient.cpp readrcuregister
     AFL->SetValue(binary[0]);   //Set Active FEC list value equal to the result from the DCS
