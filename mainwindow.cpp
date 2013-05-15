@@ -9,9 +9,6 @@
 #include "phosdialog.h"
 #include <QLabel>
 
-
-#include "QDebugStream.h" //for redirecting cout to QTextEdit
-
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -44,11 +41,11 @@ void MainWindow::on_pushButton_clicked() //"initiate"
     //const char *_servername = (const char*)DCS_Name.c_str();
     //Register Server Name
     bool rFSN = _FeeClient->registerFeeServerName(_servername);
-    if(rFSN=true)
+    if(rFSN==true)
     {
-        QMessageBox::information(this,"Success","FeeClient registered successfully. \n FeeServer Registered");
+        QMessageBox::information(this,"Success","FeeClient registered successfully. \nFeeServer Registered");
     }
-    if(rFSN=false)
+    if(rFSN==false)
     {
         QMessageBox::information(this,"Failed","FeeClient did not register. \n): The FeeClient is already connected or \n serverName is NULL.");
     }
@@ -82,8 +79,7 @@ void MainWindow::on_pushButton_2_clicked() //"Dialog"
     PHOSDialog *pDia = new PHOSDialog;
     QString streeng = pDia->sPHOSDialog(message);
 
-    uint talll = pDia->iPHOSDialog(2, message);
-
+    uint talll = pDia->iPHOSDialog(2, message); //change 2 to expected base number.
 
 }
 
@@ -121,25 +117,28 @@ void MainWindow::on_pushButton_4_clicked() //stop
         return;
     {
     bool resu = _FeeClient->stopFeeClient();
-    if (resu=false)
+    if (resu==false)
     {
         QMessageBox::information(this,"Failure!","FeeClient was not running");
         return;
     }
 
-    if (resu = true)
+    if (resu == true)
     {
         QMessageBox::information(this,"Win!","FeeClient was running.\nShutting down now.");
         delete _FeeClient;
     }
-}
+    }
 }
 
 void MainWindow::on_pushButton_5_clicked()
 {
-    if(_FeeClient!=NULL)
+    if(_FeeClient!=NULL){
     QMessageBox::information(this,"1!","=1");
-    if(_FeeClient=NULL)
+    return;
+    }
+    if(_FeeClient==NULL){
     QMessageBox::information(this,"2!","=2");
     return;
+    }
 }
