@@ -2,3 +2,18 @@ PHOS DCS GUI
 A GUI tool for configuration and control of PHOS Electronics, including fee control libraries. 
 
 This is a Qt project created for Linux in Qt version 4.8.X. 
+
+Make instructuions:
+Make sure Qt 4.8.X is installed!
+
+
+export path for qmake:
+$ export PATH=/usr/local/Trolltech/Qt-4.8.X/bin:$PATH
+
+Making:
+$ qmake phos_dcs_3.pro -o Makefile
+
+$ make
+
+Run:
+$ ./phos_dcs_3
