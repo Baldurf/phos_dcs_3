@@ -16,30 +16,35 @@ FeeSamCli::~FeeSamCli()
 //Function that reads the register containing the list of active FECs
 bool FeeSamCli::readAFL(Register* AFL)
 {
+    //Locking mutex. Will be unlocked when readAFL is exited.
+    //Variables in this functions can not be changed by other threads
     QMutexLocker mlAFL(_mutex);
 
-    //from phosdcsclient.cpp readrcuregister
-    vector<uint> binary;                  //The binary file that will be sent to the DCS
+    //Declare the binary file that will be sent to the DCS
+    //This file will later contain the result (current AFL)
+    vector<uint> binary;
 
-    //from binarycompiler.cpp
-    binary.push_back (RCU_READ_MEMBLOCK | 1);  //Header, read one word(32bit)
+    //Build the binary file that will be sent to the DCS
+    binary.push_back (RCU_READ_MEMBLOCK | 1);  //Header, read one word (32bit)
+    binary.push_back (AFL->GetAddress());      //Read from register 0x5100 (AFL)
+    binary.push_back (CE_CMD_TAILER);          //Tailer, end of file
 
-    binary.push_back (AFL->GetAddress());      //Read from register 0x5100
+    //Declare and set parameters needed by writeReadData
+    size_t size          = binary.size() *4;    //Number of 8 bit words in binary
+    unsigned short flags = 0;                   //Message flags
+    short errorCode      = 0;                   //Will be set on return if error occurs
+    short status         = 0;                   //Will be set on return
 
-    binary.push_back (CE_CMD_TAILER);          //Tailer
+    //Convert DCS name to string
+    std::string dcsname =_feeServerName.toStdString();
 
-    //from phosdcsclient.cpp executebinary
-    size_t size          = binary.size() *4;
-    unsigned short flags = 0;
-    short errorCode      = 0;
-    short status         = 0;
+    //Send binary file to DCS
+    //ret will be true (1) on success or false (0) on failure
+    bool ret = FeeSamCli::writeReadData ( dcsname, size, binary, flags, errorCode, status );
 
-    std::string dcsname =_feeServerName.toStdString();  //Convert name to string
+    //Set Active FEC list value equal to the result from the DCS
+    AFL->SetValue(binary[0]);
 
-    bool ret = FeeSamCli::writeReadData ( dcsname, size, binary, flags, errorCode, status ); //Send binary to DCS
-
-    //from phosdcsclient.cpp readrcuregister
-    AFL->SetValue(binary[0]);   //Set Active FEC list value equal to the result from the DCS
-
-    return ret; //Return return-status
+    //Return return-status
+    return ret;
 }
