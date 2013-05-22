@@ -1,5 +1,5 @@
 PHOS DCS GUI
-A GUI tool for configuration and control of PHOS Electronics, including fee control libraries. 
+A GUI tool for configuration and control of PHOS Electronics, including fee control libraries. This is a project for testing and contains debugging code.
 
 This is a Qt project created for Linux in Qt version 4.8.X. 
 
