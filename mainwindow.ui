@@ -3438,19 +3438,6 @@
      </rect>
     </property>
    </widget>
-   <widget class="QLabel" name="label_188">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>380</y>
-      <width>58</width>
-      <height>15</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Delete!</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
