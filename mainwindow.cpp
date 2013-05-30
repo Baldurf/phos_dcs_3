@@ -20,6 +20,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //FeeSamCli *_FeeClient = new FeeSamCli(); //Why can't this be here?
     this->setWindowTitle ("PHOS_DCS_3-TEST"); //changes the name of the mainwindow to PHOS_DCS_3
 
+
 }
 
 MainWindow::~MainWindow()
