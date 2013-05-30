@@ -1595,7 +1595,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Read AFL</string>
+              <string>Refresh list</string>
              </property>
             </widget>
            </item>
@@ -1608,7 +1608,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Write AFL</string>
+              <string>Update RCU</string>
              </property>
             </widget>
            </item>
@@ -2351,7 +2351,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Read AFL</string>
+              <string>Refresh list</string>
              </property>
             </widget>
            </item>
@@ -2364,7 +2364,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Write AFL</string>
+              <string>Update RCU</string>
              </property>
             </widget>
            </item>
@@ -3107,7 +3107,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Read AFL</string>
+              <string>Refresh list</string>
              </property>
             </widget>
            </item>
@@ -3120,7 +3120,7 @@
               </size>
              </property>
              <property name="text">
-              <string>Write AFL</string>
+              <string>Update RCU</string>
              </property>
             </widget>
            </item>
@@ -3436,6 +3436,19 @@
       <width>256</width>
       <height>192</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_188">
+    <property name="geometry">
+     <rect>
+      <x>490</x>
+      <y>380</y>
+      <width>58</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Delete!</string>
     </property>
    </widget>
    <widget class="QWidget" name="">
