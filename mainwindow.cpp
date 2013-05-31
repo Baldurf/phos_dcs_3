@@ -52,6 +52,7 @@ void MainWindow::on_pushButton_clicked() //"initiate"
     }
 
 
+//Just an empty line
 
     //Register Service Name - trengs dette? .. fikse senere.. ingen håndterings funksjon i feesamcli..
     //bool rSN = client->registerServiceName(DCS_Name.c_str(),**peker ); //**peker til håndteringsfunksjonenfor tjenesten
