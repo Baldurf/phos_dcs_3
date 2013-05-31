@@ -144,10 +144,10 @@
        </rect>
       </property>
       <property name="text">
-       <string> </string>
+       <string/>
       </property>
      </widget>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>1</x>
@@ -3190,110 +3190,13 @@
        </item>
       </layout>
      </widget>
-     <zorder>radioButton</zorder>
-     <zorder>label</zorder>
-     <zorder>radioButton_2</zorder>
-     <zorder>radioButton_3</zorder>
-     <zorder>radioButton_4</zorder>
-     <zorder>radioButton_5</zorder>
-     <zorder>radioButton_6</zorder>
-     <zorder>radioButton_7</zorder>
-     <zorder>radioButton_8</zorder>
-     <zorder>radioButton_9</zorder>
-     <zorder>radioButton_10</zorder>
-     <zorder>radioButton_11</zorder>
-     <zorder>radioButton_12</zorder>
-     <zorder>radioButton_13</zorder>
-     <zorder>radioButton_14</zorder>
-     <zorder>label_10</zorder>
-     <zorder>label_11</zorder>
-     <zorder>label_12</zorder>
-     <zorder>label_13</zorder>
-     <zorder>label_14</zorder>
-     <zorder>label_15</zorder>
-     <zorder>label_16</zorder>
-     <zorder>label_17</zorder>
-     <zorder>label_18</zorder>
-     <zorder>label_19</zorder>
-     <zorder>label_20</zorder>
-     <zorder>label_21</zorder>
-     <zorder>label_22</zorder>
-     <zorder>label_23</zorder>
-     <zorder>layoutWidget</zorder>
-     <zorder>horizontalSpacer</zorder>
+     <zorder>label_178</zorder>
      <zorder>label_3</zorder>
      <zorder>label_4</zorder>
-     <zorder></zorder>
-     <zorder></zorder>
-     <zorder>layoutWidget</zorder>
-     <zorder>layoutWidget_2</zorder>
-     <zorder>layoutWidget_3</zorder>
-     <zorder>layoutWidget_4</zorder>
      <zorder>label_208</zorder>
      <zorder>layoutWidget</zorder>
-     <zorder>layoutWidget_2</zorder>
-     <zorder>layoutWidget_3</zorder>
-     <zorder>layoutWidget_4</zorder>
-     <zorder>layoutWidget_5</zorder>
-     <zorder>layoutWidget_6</zorder>
-     <zorder>layoutWidget_7</zorder>
-     <zorder>layoutWidget_8</zorder>
-     <zorder>line_19</zorder>
-     <zorder>line_22</zorder>
      <zorder>label_179</zorder>
-     <zorder>label_180</zorder>
-     <zorder>checkBox_19</zorder>
-     <zorder>checkBox_83</zorder>
-     <zorder>label_181</zorder>
-     <zorder>label_182</zorder>
-     <zorder>pushButton_6</zorder>
-     <zorder>pushButton_7</zorder>
-     <zorder>pushButton_8</zorder>
-     <zorder>pushButton_9</zorder>
-     <zorder>layoutWidget_10</zorder>
-     <zorder>layoutWidget_11</zorder>
-     <zorder>layoutWidget_12</zorder>
-     <zorder>layoutWidget_4</zorder>
-     <zorder>layoutWidget_8</zorder>
-     <zorder>layoutWidget_9</zorder>
-     <zorder>layoutWidget_13</zorder>
-     <zorder>layoutWidget_14</zorder>
-     <zorder>layoutWidget_15</zorder>
-     <zorder>layoutWidget_16</zorder>
-     <zorder>layoutWidget_17</zorder>
-     <zorder>pushButton_8</zorder>
-     <zorder></zorder>
-     <zorder></zorder>
-     <zorder></zorder>
-     <zorder>layoutWidget_10</zorder>
-     <zorder>layoutWidget_11</zorder>
-     <zorder>layoutWidget_12</zorder>
-     <zorder>line_39</zorder>
-     <zorder>line_40</zorder>
-     <zorder>line_41</zorder>
      <zorder>line_19</zorder>
-     <zorder>line</zorder>
-     <zorder>line_3</zorder>
-     <zorder>line_4</zorder>
-     <zorder>line_5</zorder>
-     <zorder>line_6</zorder>
-     <zorder>line_7</zorder>
-     <zorder>line_8</zorder>
-     <zorder>line_17</zorder>
-     <zorder>line_18</zorder>
-     <zorder>line_20</zorder>
-     <zorder>line_21</zorder>
-     <zorder>line_22</zorder>
-     <zorder>line_23</zorder>
-     <zorder>line_24</zorder>
-     <zorder>line_25</zorder>
-     <zorder>line_26</zorder>
-     <zorder>line_27</zorder>
-     <zorder>line_24</zorder>
-     <zorder>line_25</zorder>
-     <zorder>line_26</zorder>
-     <zorder>line_28</zorder>
-     <zorder>line_27</zorder>
      <zorder>line_29</zorder>
      <zorder>line_30</zorder>
      <zorder>line_31</zorder>
@@ -3327,7 +3230,7 @@
      <attribute name="title">
       <string>Test</string>
      </attribute>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>280</x>
@@ -3438,7 +3341,7 @@
      </rect>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -3449,7 +3352,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_185"/>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>0</x>
@@ -3459,6 +3362,19 @@
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_186"/>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>380</y>
+      <width>58</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DELETE</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
