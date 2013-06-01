@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     //PHOSDialog *pDialog = new PHOSDialog(this);
     //parent.show;
     //FeeSamCli *_FeeClient = new FeeSamCli(); //Why can't this be here?
-    this->setWindowTitle ("PHOS_DCS_3-TEST"); //changes the name of the mainwindow to PHOS_DCS_3
+    this->setWindowTitle ("PHOS_DCS_3"); //changes the name of the mainwindow to PHOS_DCS_3
 
 
 }
